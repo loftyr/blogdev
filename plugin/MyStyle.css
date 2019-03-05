@@ -1,0 +1,48 @@
+body {
+	background: #e8e9ea;
+}
+
+.navigasi {
+	background: #edb05e;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.nav-link {
+	color: white;
+	margin-right: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 15px;
+}
+
+.nav-item {
+	
+}
+
+.nav-link:hover {
+	color: #efe2d0;
+	background: #f7f5f2;
+	transition: .5s;
+}
+
+.aktif {
+	background: #f2f2f2;
+	color: black;
+}
+
+.main-body {
+	margin: 10px 0 10px 0;
+}
+
+.card-img-top {
+	width: 280px;
+	height: 150px;
+	display: block;
+	float: left;
+}
+
+.card-text {
+	
+}
