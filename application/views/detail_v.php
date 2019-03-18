@@ -40,31 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	
         <!-- Body -->
     	<div class="main-body">
-            <ul class="list-group list-group-flush">
-                <?php foreach ($data->result() as $thread): ?>
-                    <li class="list-group-item">
-                        <a href="<?= base_url('detail/id/'.$thread->id.''); ?>" target="_blank">
-                            <h5 class="card-title"><?= $thread->judul_thread; ?></h5>
-                        </a>
-                        <div class="detail">
-                            <img class="card-img-top" src="<?= base_url('file/img_upload/logo1.jpg'); ?>" alt="Card image cap">
-                            <p class="card-text ">
-                                <?= substr($thread->ket_thread, 0, 250); ?>..... <a href="#">Lihat Selengkapnya</a>
-                            </p>
-                            <div class="footer-thread text-muted">
-                                <?= time_ago($thread->tanggal); ?>
-                            </div>
-
-                        </div>
-                    </li>
-                <?php endforeach ?>
-            </ul>
-            <div class="row">
-                <div class="col">
-                    <!--Tampilkan pagination-->
-                    <?php echo $pagination; ?>
-                </div>
-            </div>
+            <!-- <?php echo $d_thread; ?> -->
     	</div>
 
         <!-- Footer -->
@@ -102,4 +78,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?= base_url('plugin/popper.min.js') ?>"></script>
     <script src="<?= base_url('plugin/bootstrap/js/bootstrap.min.js') ?>"></script>
   </body>
-</html>
+</html> 
