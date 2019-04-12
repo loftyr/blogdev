@@ -6,8 +6,8 @@ class Admin extends CI_Controller {
 	//Job Medan 
 	public function dashboard()
 	{	
-		if (@$_GET['page'] == "data-anggota") {
-			$data['all_anggota'] = $this->anggota_model->get_all_anggota();
+		if (@$_GET['page'] == "loker") {
+			$data['all_thread']	 	= $this->thread_m->get_all_thread();
 		}else{
 			$data = '';
 		}

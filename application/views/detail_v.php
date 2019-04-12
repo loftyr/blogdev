@@ -40,7 +40,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	
         <!-- Body -->
     	<div class="main-body">
-            <!-- <?php echo $d_thread; ?> -->
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2><?= $detail_thread[0]->judul_thread ?></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>
+                        <?= $detail_thread[0]->ket_thread ?>
+                    </p>
+
+                    <p>
+                        Alamat <?= $detail_thread[0]->alamat_thread ?>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-detail rounded shadow" src="<?= base_url(''.$detail_thread[0]->url_logo.'') ?>" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 mt-3">
+                    <h6 class="text-center">Syarat Dan Informasi</h6>
+
+
+                </div>
+            </div>
     	</div>
 
         <!-- Footer -->

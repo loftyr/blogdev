@@ -47,9 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h5 class="card-title"><?= $thread->judul_thread; ?></h5>
                         </a>
                         <div class="detail">
-                            <img class="card-img-top" src="<?= base_url('file/img_upload/logo1.jpg'); ?>" alt="Card image cap">
+                            <img class="card-img-top" src="<?= base_url(''.$thread->url_logo.''); ?>" alt="Card image cap">
                             <p class="card-text ">
-                                <?= substr($thread->ket_thread, 0, 250); ?>..... <a href="#">Lihat Selengkapnya</a>
+                                <?= substr($thread->ket_thread, 0, 250); ?>..... <a href="<?= base_url('detail/id/'.$thread->id.''); ?>" target="_blank">Lihat Selengkapnya</a>
                             </p>
                             <div class="footer-thread text-muted">
                                 <?= time_ago($thread->tanggal); ?>

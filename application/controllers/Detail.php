@@ -6,10 +6,13 @@ class Detail extends CI_Controller {
 	//Job Medan 
 	public function id()
 	{	
-		//List Thread
+		//Id Thread
 		$id = $this->uri->segment(3);
-		
 
+		// Detail Thread
+		$data['detail_thread'] = $this->thread_m->get_thread_by_id($id);
+
+		// var_dump($data);
 		$this->load->view('detail_v', $data);
 	}
 }

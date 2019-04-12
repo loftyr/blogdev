@@ -18,4 +18,11 @@ class Thread_m extends CI_Model {
 		$query = $this->db->get('d_thread', $limit, $start);
 		return $query;
 	}
+
+	public function get_thread_by_id($id) {
+		$this->db->from('d_thread');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

@@ -19,8 +19,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!-- Custom styles for this page -->
   	<link rel="stylesheet" href="<?= base_url('plugin/datatables/dataTables.bootstrap4.min.css') ?>">
+
+  	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url('plugin/bootstrap/css/bootstrap.min.css') ?>">
+
+    <!-- My Style CSS -->
+    <link rel="stylesheet" href="<?= base_url('plugin/MyStylePage.css') ?>">
+
+    <!--  -->
+    <?php if (@$_GET['page'] == "loker"): ?>
+		<link rel="stylesheet" href="<?= base_url('plugin/JqueryUI/jquery-ui.css') ?>">
+    <?php else: ?>
+
+    <?php endif; ?>
+    <!--  -->
 </head>
-<body>
+<body id="page-top">
 	<!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -32,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="sidebar-brand-icon rotate-n-15">
 				<i class="fas fa-laugh-wink"></i>
 			</div>
-			<div class="sidebar-brand-text mx-3">Dashboard</div>
+			<div class="sidebar-brand-text mx-3" id="judul-dashboard">Dashboard</div>
 		</a>
 
 
@@ -188,11 +202,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Custom scripts for all pages-->
 	<script src="<?= base_url('plugin/sb-admin-2.js'); ?>"></script>
 
-	<?php if (@$_GET['page'] == "loker"): ?>
+	<?php if (@$_GET['page'] == "loker"): ?> 
 		<!-- Page level Loker -->
 		<script src="<?= base_url('plugin/datatables/jquery.dataTables.min.js') ?>"></script>
 		<script src="<?= base_url('plugin/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 		<script src="<?= base_url('plugin/demo/datatables-demo.js') ?>"></script>
+		<script src="<?= base_url('plugin/JqueryUI/jquery-ui.js') ?>"></script>
+		<script src="<?= base_url('plugin/MyScript.js') ?>"></script>
 	<?php elseif(@$_GET['page'] == "" || @$_GET['page'] == "home"): ?>
 		<!-- Page level Home -->
 		<script src="<?= base_url('plugin/chart.js/Chart.min.js'); ?>"></script>
@@ -202,8 +218,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 	<?php endif ?>
 	
-	
-	<!-- <script src="<?= base_url('plugin/demo/chart-pie-demo.js') ?>"></script> -->
 		
 </body>
 </html>

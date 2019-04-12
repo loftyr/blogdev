@@ -1,0 +1,15 @@
+/*Awal CSS Page Loker*/
+
+.btn-tambah {
+	width: 150px;
+}
+
+.img-preview {
+	margin-top: 8px;
+	border-style: inset;
+	width: 250px;
+	/*height: 150px;*/
+	min-width: 250px;
+	min-height: 150px;
+}
+/*Akhir CSS Page Loker*/
