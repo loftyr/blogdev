@@ -23,6 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('plugin/bootstrap/css/bootstrap.min.css') ?>">
 
+    <!-- Sweet Alert 2 CSS -->
+    <link rel="stylesheet" href="<?= base_url('plugin/sweetAlert2/sweetAlert2.min.css') ?>">
+
     <!-- My Style CSS -->
     <link rel="stylesheet" href="<?= base_url('plugin/MyStylePage.css') ?>">
 
@@ -208,7 +211,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?= base_url('plugin/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 		<script src="<?= base_url('plugin/demo/datatables-demo.js') ?>"></script>
 		<script src="<?= base_url('plugin/JqueryUI/jquery-ui.js') ?>"></script>
-		<script src="<?= base_url('plugin/MyScript.js') ?>"></script>
+		<script src="<?= base_url('plugin/sweetAlert2/sweetAlert2.min.js') ?>"></script>
+		<script type="text/javascript" src="<?= base_url('plugin/MyScript.js') ?>"></script>
 	<?php elseif(@$_GET['page'] == "" || @$_GET['page'] == "home"): ?>
 		<!-- Page level Home -->
 		<script src="<?= base_url('plugin/chart.js/Chart.min.js'); ?>"></script>
@@ -217,7 +221,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php else: ?>
 		
 	<?php endif ?>
-	
-		
 </body>
 </html>

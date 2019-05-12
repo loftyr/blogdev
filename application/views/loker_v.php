@@ -39,13 +39,13 @@
                   <td><?= $thread->tanggal ?></td>
                   <td><?= $thread->alamat_thread ?></td>
                   <td class="text-center">
-                    <button dataID="<?= $thread->id ?>" onclick="lihat();" class="btn btn-secondary btn-sm mb-1">
+                    <button dataID="<?= $thread->id ?>" class="btn btn-secondary btn-sm mb-1 btnLihat">
                       <i class="fa fa-book"></i>
                     </button>
-                    <button dataID="<?= $thread->id ?>" class="btn btn-primary btn-sm mb-1">
+                    <button dataID="<?= $thread->id ?>" class="btn btn-primary btn-sm mb-1 btnEdit">
                       <i class="fa fa-edit"></i>
                     </button>
-                    <button dataID="<?= $thread->id ?>" class="btn btn-danger btn-sm">
+                    <button dataID="<?= $thread->id ?>" class="btn btn-danger btn-sm btnHapus">
                       <i class="fa fa-trash"></i>
                     </button>
                   </td>
@@ -79,19 +79,9 @@
                 <th>Aksi</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="table-detail">
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="text-center">
-                  <button dataID="<?= $thread->id ?>" id="" class="btn btn-primary btn-sm">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button dataID="<?= $thread->id ?>" id="" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </td>
+                <td colspan="4">Data Kosong !!!</td>
               </tr>
             </tbody>
           </table>
@@ -119,7 +109,7 @@
 
       <!-- Bagian Body Modal -->
       <div class="modal-body">
-        <form action="">
+        <form action="" id="form" link="<?= base_url('admin'); ?>" enctype="multipart/form-data">
           <input type="hidden"  value="" id="id">
           <div class="form-group">
             <label for="Judul">Judul</label>
@@ -149,7 +139,7 @@
 
       <!-- Bagian Footer Modal -->
       <div class="modal-footer">
-        <button class="btn btn-primary" id="btn-save">Save Changes</button>
+        <button class="btn btn-primary" id="btn-save">Save</button>
         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
       <!-- Akhir Bagian -->

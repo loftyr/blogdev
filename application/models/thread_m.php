@@ -23,6 +23,18 @@ class Thread_m extends CI_Model {
 		$this->db->from('d_thread');
 		$this->db->where('id', $id);
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row();
 	}
+
+	// Save Thread Loker
+	public function save_thread($data){
+		$query	= $this->db->insert('d_thread', $data);
+
+		if (!$query) {
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 }
