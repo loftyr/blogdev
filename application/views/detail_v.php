@@ -42,21 +42,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<div class="main-body">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h2><?= $detail_thread[0]->judul_thread ?></h2>
+                    <h2><?= $detail_thread->judul_thread ?></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-8">
                     <p>
-                        <?= $detail_thread[0]->ket_thread ?>
+                        <?= nl2br($detail_thread->ket_thread); ?>
                     </p>
 
                     <p>
-                        Alamat <?= $detail_thread[0]->alamat_thread ?>
+                        Alamat <?= $detail_thread->alamat_thread ?>
                     </p>
                 </div>
                 <div class="col-sm-4">
-                    <img class="img-detail rounded shadow" src="<?= base_url(''.$detail_thread[0]->url_logo.'') ?>" alt="">
+                    <img class="img-detail rounded shadow" src="<?= base_url('file/img_upload/'.$detail_thread->url_logo.'') ?>" alt="">
                 </div>
             </div>
             <div class="row">

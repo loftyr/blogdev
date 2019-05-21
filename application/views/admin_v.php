@@ -209,7 +209,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- Page level Loker -->
 		<script src="<?= base_url('plugin/datatables/jquery.dataTables.min.js') ?>"></script>
 		<script src="<?= base_url('plugin/datatables/dataTables.bootstrap4.min.js') ?>"></script>
-		<script src="<?= base_url('plugin/demo/datatables-demo.js') ?>"></script>
 		<script src="<?= base_url('plugin/JqueryUI/jquery-ui.js') ?>"></script>
 		<script src="<?= base_url('plugin/sweetAlert2/sweetAlert2.min.js') ?>"></script>
 		<script type="text/javascript" src="<?= base_url('plugin/MyScript.js') ?>"></script>

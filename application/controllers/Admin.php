@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function save() {
-		// var_dump($this->input->post('Tgl'));die();
+		// var_dump($this->input->post('Tgl').' '.date('h:i:s'));die();
 		$this->form_validation->set_rules('Judul', 'Judul', 'required');
 		$this->form_validation->set_rules('Ket', 'Ket', 'required');
 		$this->form_validation->set_rules('Tgl', 'Tgl', 'required');
@@ -71,7 +71,7 @@ class Admin extends CI_Controller {
 	            $data = [
 					'judul_thread' 	=> htmlspecialchars($this->input->post('Judul')),
 					'ket_thread' 	=> htmlspecialchars($this->input->post('Ket')),
-					'tanggal'		=> $this->input->post('Tgl'),
+					'tanggal'		=> $this->input->post('Tgl').' '.date('h:i:s'),
 					'alamat_thread'	=> htmlspecialchars($this->input->post('Alamat')),
 					'url_logo'		=> $imagename
 				];
@@ -96,5 +96,24 @@ class Admin extends CI_Controller {
 
 	public function saveEdit() {
 
+	}
+
+	public function delete($id) {
+		$this->db->where('id', $id);
+		$linkImage 	= $this->db->get('d_thread')->row('url_logo');
+
+		@unlink('././file/img_upload/'.$linkImage);
+
+		$query	= $this->thread_m->delete_by_id($id);
+		
+		if ($query == true) {
+			$result['Msg']		= 'Data Berhasil Di Hapus . . .';
+			$result['Status']	= true;
+		}else{
+			$result['Msg'] 		= $this->db->error()['message'];
+			$result['Status'] 	= false;
+		}
+
+		echo json_encode($result);
 	}
 }

@@ -13,12 +13,14 @@ function previewImage(input) {
 }
 
 $(document).ready(function(){
-	$('.tgl-entry').datepicker({dateFormat: 'yy-mm-dd'});
+	$('.tgl-entry').datepicker({dateFormat: 'yy-mm-dd', maxDate: '0'});
 
 	$('.modal').on('hidden.bs.modal', function(e){
 		$(this).find('form').trigger('reset');
 		$('img.img-preview').attr('src', '');
 	});
+
+	$('#dataTable').DataTable();
 });
 
 var btnAdd 			= document.querySelector('#add-loker');
@@ -56,17 +58,22 @@ btnSave.addEventListener("click", function(){
 				    title: result.Msg,
 				    showConfirmButton: false,
 				    timer: 1500
-				});
+				})
 			}else{
+				modalView.modal('hide');
+				
 				Swal.fire({
 					position: 'top-end',
 				    type: 'success',
 				    title: result.Msg,
 				    showConfirmButton: false,
 				    timer: 1500
-				});
-				modalView.modal('hide');
-				window.location.reload();
+				}).then((result) => {
+				  	if (result.dismiss === Swal.DismissReason.timer) {
+					    window.location.reload();
+					 }
+				})
+				// window.location.reload();
 			}
 		},
 		error:function(jqXHR, textStatus, errorThrown) {
@@ -119,12 +126,48 @@ $(document).on('click', '.btnHapus', function(){
 		confirmButtonText: 'Yes, delete it!'
 	}).then((result) => {
 		if (result.value) {
+			var id = $(this).attr('dataID');
+
+			$.ajax({
+				url: "delete/"+id,
+				type: 'GET',
+				dataType: 'JSON',
+				success:function(result){
+					if (result.Status == true) {
+						Swal.fire({
+							position: 'top-end',
+						    type: 'success',
+						    title: result.Msg,
+						    showConfirmButton: false,
+						    timer: 1000
+						}).then((result) => {
+						  	if (result.dismiss === Swal.DismissReason.timer) {
+							    window.location.reload();
+							 }
+						})
+					}else{
+						Swal.fire({
+							position: 'top-end',
+						    type: 'error',
+						    title: result.Msg,
+						    showConfirmButton: false,
+						    timer: 1000
+						}).then((result) => {
+						  	if (result.dismiss === Swal.DismissReason.timer) {
+							    window.location.reload();
+							 }
+						})
+					}
+				}
+			});
+						
+		}else {
 			Swal.fire({
 				position: 'top-end',
-			    type: 'success',
-			    title: 'Data Has been Delete',
+			    type: 'info',
+			    title: 'Data will be keep . . .',
 			    showConfirmButton: false,
-			    timer: 1500
+			    timer: 1000
 			})
 		}
 	})

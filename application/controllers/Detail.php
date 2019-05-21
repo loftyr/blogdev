@@ -12,7 +12,7 @@ class Detail extends CI_Controller {
 		// Detail Thread
 		$data['detail_thread'] = $this->thread_m->get_thread_by_id($id);
 
-		// var_dump($data);
+		// var_dump($data);exit();
 		$this->load->view('detail_v', $data);
 	}
 }

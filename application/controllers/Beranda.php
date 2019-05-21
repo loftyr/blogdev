@@ -43,6 +43,7 @@ class Beranda extends CI_Controller {
 
         // List Data Thread
 		$data['d_thread'] = $this->thread_m->get_all_thread();
+		// var_dump($data['d_thread']);exit();
 		$this->load->view('beranda_v', $data);
 	}
 }
