@@ -16,17 +16,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- My Style CSS -->
     <link rel="stylesheet" href="<?= base_url('plugin/MyStyle.css') ?>">
 
-    <title>Welcome To Job Medan</title>
+    <title>Detail Job</title>
   </head>
   <body>
     
-    <div class="container bg-container">
+    <div class="container">
 
     	<!-- Navbar -->
     	<div class="navigasi">
 		 	<ul class="nav justify-content-end">
 				<li class="nav-item">
-			    	<a class="nav-link aktif" href="#">Home</a>
+			    	<a class="nav-link" href="<?= base_url(); ?>">Home</a>
 			  	</li>
 			  	<li class="nav-item">
 			    	<a class="nav-link" href="#">Tentang</a>
@@ -34,12 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  	<li class="nav-item">
 			    	<a class="nav-link" href="#">Follow US</a>
 			  	</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/request/') ?>">Ajukan Loker</a>
+                </li>
 			</ul>
 		</div>
     	<!-- Akhir Navbar -->
     	
         <!-- Body -->
-    	<div class="main-body">
+    	<div class="body-background rounded shadow pr-3 pl-3 mt-1 mb-1">
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <h2><?= $detail_thread->judul_thread ?></h2>
@@ -59,11 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <img class="img-detail rounded shadow" src="<?= base_url('file/img_upload/'.$detail_thread->url_logo.'') ?>" alt="">
                 </div>
             </div>
+    
             <div class="row">
                 <div class="col-sm-12 mt-3">
-                    <h6 class="text-center">Syarat Dan Informasi</h6>
+                    <img class="img-brosur rounded shadow" src="<?= base_url('file/brosur_upload/'.$detail_thread->url_brosur.'') ?>" alt="">
+                </div>
+            </div>
 
-
+            <div class="row">
+                <div class="col-sm-12 mt-3 text-center pb-3">
+                    <h6 class="text-center">Info Lebih Lanjut Kunjungin Link Dibawah</h6>
+                    <a href="<?= $detail_thread->link_website ?>"><?= $detail_thread->link_website ?></a>
                 </div>
             </div>
     	</div>

@@ -3,7 +3,7 @@
     <a href="#thread" class="nav-link active" id="list-thread" data-toggle="tab" role="tab">List Thread</a>
   </li>
   <li class="nav-item">
-    <a href="#detail-thread" class="nav-link" id="d-thread" data-toggle="tab" role="tab">Detail Thread</a>
+    <a href="#detail-thread" class="nav-link" id="d-thread" data-toggle="tab" role="tab">Posting Thread</a>
   </li>
 </ul>
 <!-- List All Thread -->
@@ -31,9 +31,10 @@
               </tr>
             </thead>
             <tbody>
+              <?php $no = 1; ?>
               <?php foreach ($all_thread as $thread): ?>
                 <tr>
-                  <td><?= $thread->id ?></td>
+                  <td><?= $no++; ?></td>
                   <td><?= $thread->judul_thread ?></td>
                   <td><?= $thread->ket_thread ?></td>
                   <td><?= $thread->tanggal ?></td>
@@ -66,23 +67,43 @@
         <h6 class="m-0 font-weight-bold text-primary">Data Thread</h6>
       </div> -->
       <div class="col-sm-4 mt-2">
-        <button class="btn btn-primary btn-tambah" id="add-detail">Add Detail</button>
+        <button class="btn btn-primary btn-posting" id="posting-thread">Posting Thread</button>
       </div>
       <div class="card-body"> <!-- Start 1 -->
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="table-posting" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>No</th>
                 <th>Uraian</th>
                 <th>Keterangan</th>
+                <th>Tanggal</th>
+                <th>Alamat</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody id="table-detail">
-              <tr>
-                <td colspan="4">Data Kosong !!!</td>
-              </tr>
+              <?php $nourut = 1; ?>
+              <?php foreach ($data_thread as $value): ?>
+                <tr>
+                  <td><?= $nourut++; ?></td>
+                  <td><?= $value->judul_thread ?></td>
+                  <td><?= $value->ket_thread ?></td>
+                  <td><?= $value->tanggal ?></td>
+                  <td><?= $value->alamat_thread ?></td>
+                  <td class="text-center">
+                    <button dataID="<?= $value->id ?>" class="btn btn-secondary btn-sm mb-1 btnLihat">
+                      <i class="fa fa-book"></i>
+                    </button>
+                    <button dataID="<?= $value->id ?>" class="btn btn-primary btn-sm mb-1 btnEdit">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button dataID="<?= $value->id ?>" class="btn btn-danger btn-sm btnHapus">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              <?php endforeach ?>
             </tbody>
           </table>
         </div>
@@ -110,7 +131,7 @@
       <!-- Bagian Body Modal -->
       <div class="modal-body">
         <form action="" id="form" link="<?= base_url('admin'); ?>" enctype="multipart/form-data">
-          <input type="hidden"  value="" id="id">
+          <input type="hidden"  value="" id="id" name="id">
           <div class="form-group">
             <label for="Judul">Judul</label>
             <input type="text" class="form-control" id="Judul" name="Judul">
@@ -133,14 +154,26 @@
             <img src="" class="img-preview">
             <small id="info" class="form-text text-muted">Max Ukuran Logo 250 x 150</small>
           </div>
+          <div class="form-group">
+            <label for="Brosur">Brosur</label>
+            <input type="file" class="form-control-file col-sm-4" id="Brosur" name="Brosur">
+            <small id="info" class="form-text text-muted">Max Ukuran 2.5MB</small>
+          </div>
+          <div class="form-group">
+              <label for="Link">Link</label>
+              <input type="text" class="form-control" id="Link" name="Link">
+          </div>
         </form>
+
+        <div class="progress" style="display: none;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </div>
       <!-- Akhir Bagian -->
 
       <!-- Bagian Footer Modal -->
       <div class="modal-footer">
         <button class="btn btn-primary" id="btn-save">Save</button>
-        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
       <!-- Akhir Bagian -->
     </div>

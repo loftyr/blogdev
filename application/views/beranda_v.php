@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<div class="navigasi">
 		 	<ul class="nav justify-content-end">
 				<li class="nav-item">
-			    	<a class="nav-link aktif" href="#">Home</a>
+			    	<a class="nav-link aktif" href="<?= base_url() ?>">Home</a>
 			  	</li>
 			  	<li class="nav-item">
 			    	<a class="nav-link" href="#">Tentang</a>
@@ -34,6 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  	<li class="nav-item">
 			    	<a class="nav-link" href="#">Follow US</a>
 			  	</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/request/') ?>">Ajukan Loker</a>
+                </li>
 			</ul>
 		</div>
     	<!-- Akhir Navbar -->
